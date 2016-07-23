@@ -214,9 +214,19 @@
     <Compile Include="Migrations\201607222135194_InitialCreate.Designer.cs">
       <DependentUpon>201607222135194_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201607230703255_CreateInitModels.cs" />
+    <Compile Include="Migrations\201607230703255_CreateInitModels.Designer.cs">
+      <DependentUpon>201607230703255_CreateInitModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607230710366_OverrideConventions.cs" />
+    <Compile Include="Migrations\201607230710366_OverrideConventions.Designer.cs">
+      <DependentUpon>201607230710366_OverrideConventions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Invoice.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -297,6 +307,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201607222135194_InitialCreate.resx">
       <DependentUpon>201607222135194_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607230703255_CreateInitModels.resx">
+      <DependentUpon>201607230703255_CreateInitModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607230710366_OverrideConventions.resx">
+      <DependentUpon>201607230710366_OverrideConventions.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
