@@ -222,6 +222,10 @@
     <Compile Include="Migrations\201607230710366_OverrideConventions.Designer.cs">
       <DependentUpon>201607230710366_OverrideConventions.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201607292009053_AddInvoiceDetails.cs" />
+    <Compile Include="Migrations\201607292009053_AddInvoiceDetails.Designer.cs">
+      <DependentUpon>201607292009053_AddInvoiceDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -313,6 +317,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201607230710366_OverrideConventions.resx">
       <DependentUpon>201607230710366_OverrideConventions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607292009053_AddInvoiceDetails.resx">
+      <DependentUpon>201607292009053_AddInvoiceDetails.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
