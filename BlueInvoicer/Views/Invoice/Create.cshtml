@@ -1,0 +1,18 @@
+﻿@model BlueInvoicer.ViewModels.InvoiceFormViewModel
+
+@{
+    ViewBag.Title = "Raise Invoice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Raise Invoice</h2>
+
+@using (Html.BeginForm("Create", "Invoice"))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        @Html.LabelFor(m => m.Client)
+        @Html.DropDownListFor(m => m.Client, new SelectList(Model.Clients, "ClientId", "ClientName"), "", new {@class = "form-control"})
+    </div>
+    <button type="submit" class="btn btn-primary">Raise Invoice</button>
+}
