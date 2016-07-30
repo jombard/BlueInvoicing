@@ -58,3 +58,8 @@ h6,
 .h6 {
     font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
+.field-validation-error {
+    color: red;
+    font-weight: bold;
+}
