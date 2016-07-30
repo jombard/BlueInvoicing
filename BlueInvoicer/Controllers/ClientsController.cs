@@ -26,6 +26,7 @@ namespace BlueInvoicer.Controllers
 
         [Authorize]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(ClientFormViewModel viewModel)
         {
             if(!ModelState.IsValid)

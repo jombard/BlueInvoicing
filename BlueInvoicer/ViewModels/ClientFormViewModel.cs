@@ -11,9 +11,11 @@ namespace BlueInvoicer.ViewModels
         public string Address { get; set; }
 
         [Required]
+        [EmailAddress]
         public string Email { get; set; }
 
         [Required]
+        [EmailAddress]
         public string InvoiceEmail { get; set; }
     }
 }
