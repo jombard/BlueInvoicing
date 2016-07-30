@@ -28,6 +28,9 @@ namespace BlueInvoicer.Controllers
         [HttpPost]
         public ActionResult Create(ClientFormViewModel viewModel)
         {
+            if(!ModelState.IsValid)
+                return View("Create", viewModel);
+
             var client = new Client
             {
                 ClientName = viewModel.Name,
