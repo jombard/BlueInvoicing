@@ -1,4 +1,4 @@
-﻿@model BlueInvoicer.Models.Client
+﻿@model IEnumerable<BlueInvoicer.Models.Client>
 
 @{
     ViewBag.Title = "Clients";
@@ -7,4 +7,21 @@
 
 <h2>Clients</h2>
 
-<a href="@Url.Action("Create", "Clients")" class="btn btn-default">Add Client</a>
+<a href="@Url.Action("Create", "Clients")" class="btn btn-primary">
+    <span class="glyphicon glyphicon-plus"></span> Add Client
+</a>
+
+<hr/>
+
+<ul class="list-group">
+    @foreach (var client in Model)
+    {
+        <li class="list-group-item">
+            <a href="#" class="pull-right btn btn-default">
+                <span class="glyphicon glyphicon-pencil"></span> Edit
+            </a>
+            <h4 class="list-group-item-heading">@client.ClientName</h4>
+            <p class="list-group-item-text">@client.Address</p>
+        </li>
+    }
+</ul>

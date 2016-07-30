@@ -32,6 +32,11 @@ textarea {
     border-color: #357ebd;
 }
 
+.navbar-inverse .navbar-nav > .dropdown > a .caret {
+    border-top-color: #fff;
+    border-bottom-color: #fff;
+}
+
 .navbar-inverse .navbar-nav > li > a,
 .navbar-inverse .navbar-brand {
     color: #fff;

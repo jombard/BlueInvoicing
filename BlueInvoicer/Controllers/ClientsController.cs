@@ -15,7 +15,9 @@ namespace BlueInvoicer.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            var allClients = _context.Clients;
+
+            return View(allClients);
         }
 
         [Authorize]
