@@ -1,5 +1,6 @@
 ﻿using BlueInvoicer.Models;
 using BlueInvoicer.ViewModels;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace BlueInvoicer.Controllers
@@ -23,7 +24,30 @@ namespace BlueInvoicer.Controllers
         [Authorize]
         public ActionResult Create()
         {
-            return View();
+            var viewModel = new ClientFormViewModel
+            {
+                Heading = "Add a new client"
+            };
+
+            return View("ClientForm", viewModel);
+        }
+
+        [Authorize]
+        public ActionResult Edit(int id)
+        {
+            var client = _context.Clients.Single(c => c.ClientId == id);
+
+            var viewModel = new ClientFormViewModel()
+            {
+                Id = client.ClientId,
+                Name = client.ClientName,
+                Address = client.Address,
+                Email = client.ContactEmail,
+                InvoiceEmail = client.InvoiceEmail,
+                Heading = "Edit a client"
+            };
+
+            return View("ClientForm", viewModel);
         }
 
         [Authorize]
@@ -32,7 +56,7 @@ namespace BlueInvoicer.Controllers
         public ActionResult Create(ClientFormViewModel viewModel)
         {
             if(!ModelState.IsValid)
-                return View("Create", viewModel);
+                return View("ClientForm", viewModel);
 
             var client = new Client
             {
@@ -43,6 +67,26 @@ namespace BlueInvoicer.Controllers
             };
 
             _context.Clients.Add(client);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Clients");
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Update(ClientFormViewModel viewModel)
+        {
+            if(!ModelState.IsValid)
+                return View("ClientForm", viewModel);
+
+            var client = _context.Clients.Single(c => c.ClientId == viewModel.Id);
+
+            client.ClientName = viewModel.Name;
+            client.Address = viewModel.Address;
+            client.ContactEmail = viewModel.Email;
+            client.InvoiceEmail = viewModel.InvoiceEmail;
+
             _context.SaveChanges();
 
             return RedirectToAction("Index", "Clients");

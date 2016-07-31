@@ -17,7 +17,7 @@
     @foreach (var client in Model)
     {
         <li class="list-group-item">
-            <a href="#" class="pull-right btn btn-default">
+            <a href="@Url.Action("Edit", "Clients", new {id = client.ClientId})" class="pull-right btn btn-default">
                 <span class="glyphicon glyphicon-pencil"></span> Edit
             </a>
             <h4 class="list-group-item-heading">@client.ClientName</h4>

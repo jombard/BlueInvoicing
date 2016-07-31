@@ -299,7 +299,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Clients\Create.cshtml" />
+    <Content Include="Views\Clients\ClientForm.cshtml" />
     <None Include="Views\Clients\Index.cshtml" />
     <None Include="Views\Invoice\Create.cshtml" />
   </ItemGroup>
