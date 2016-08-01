@@ -18,12 +18,8 @@ namespace BlueInvoicer.Models
 
         public decimal OvertimeRate { get; set; }
 
-        public enum RateType
-        {
-            Hourly = 0,
-            Daily,
-            Weekly,
-            Monthly
-        }
+        public RateType RateType { get; set; }
+
+        public RateType OvertimeRateType { get; set; }
     }
 }

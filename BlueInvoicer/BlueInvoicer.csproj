@@ -232,12 +232,21 @@
     <Compile Include="Migrations\201608012204278_AddContractModel.Designer.cs">
       <DependentUpon>201608012204278_AddContractModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608012229009_AddRateTypes.cs" />
+    <Compile Include="Migrations\201608012229009_AddRateTypes.Designer.cs">
+      <DependentUpon>201608012229009_AddRateTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608012231267_PopulateRateTypes.cs" />
+    <Compile Include="Migrations\201608012231267_PopulateRateTypes.Designer.cs">
+      <DependentUpon>201608012231267_PopulateRateTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Contract.cs" />
     <Compile Include="Models\Invoice.cs" />
+    <Compile Include="Models\RateType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
@@ -338,6 +347,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608012204278_AddContractModel.resx">
       <DependentUpon>201608012204278_AddContractModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608012229009_AddRateTypes.resx">
+      <DependentUpon>201608012229009_AddRateTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608012231267_PopulateRateTypes.resx">
+      <DependentUpon>201608012231267_PopulateRateTypes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
