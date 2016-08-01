@@ -228,16 +228,16 @@
       <DependentUpon>201607292009053_AddInvoiceDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Invoice.cs" />
-    <Compile Include="Models\InvoiceFormViewModel.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="ViewModels\ClientFormViewModel.cs" />
+    <Compile Include="ViewModels\InvoiceFormViewModel.cs" />
+    <Compile Include="ViewModels\ManageViewModels.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />

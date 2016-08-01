@@ -7,8 +7,7 @@ namespace BlueInvoicer.Models
     {
         public int Id { get; set; }
 
-        [Required]
-        [StringLength(120)]
+        [Required, StringLength(120)]
         public string InvoiceNumber { get; set; }
 
         [Required]

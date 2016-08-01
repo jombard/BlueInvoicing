@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using BlueInvoicer.Models;
+using BlueInvoicer.ViewModels;
 
 namespace BlueInvoicer.Controllers
 {

@@ -11,8 +11,8 @@
 {
     @Html.AntiForgeryToken()
     <div class="form-group">
-        @Html.LabelFor(m => m.Client)
-        @Html.DropDownListFor(m => m.Client, new SelectList(Model.Clients, "ClientId", "ClientName"), "", new {@class = "form-control"})
+        @Html.LabelFor(m => m.ClientId)
+        @Html.DropDownListFor(m => m.ClientId, new SelectList(Model.Clients, "ClientId", "ClientName"), "", new {@class = "form-control"})
     </div>
     <button type="submit" class="btn btn-primary">Raise Invoice</button>
 }
