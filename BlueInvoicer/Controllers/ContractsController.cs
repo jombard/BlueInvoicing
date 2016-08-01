@@ -21,7 +21,8 @@ namespace BlueInvoicer.Controllers
             {
                 Heading = "Add a new contract",
                 ClientId = id,
-                Client = clientName
+                Client = clientName,
+                RateTypes = _context.RateTypes.ToList()
             };
 
             return View("ContractForm", viewModel);

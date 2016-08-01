@@ -8,6 +8,7 @@ namespace BlueInvoicer.Models
         public DbSet<Invoice> Invoices { get; set; }
         public DbSet<Client> Clients { get; set; }
         public DbSet<Contract> Contracts { get; set; }
+        public DbSet<RateType> RateTypes { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

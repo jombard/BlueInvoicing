@@ -13,7 +13,7 @@
     @Html.HiddenFor(c => c.ClientId)
 
     <div class="form-group">
-        @Html.DisplayFor(m => m.Client, new { @class = "h3" })
+        @Html.DisplayFor(m => m.Client)
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Name)
@@ -22,20 +22,33 @@
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.StartDate)
-        @Html.TextBoxFor(m => m.StartDate, new { @class = "form-control", placeholder = "dd/mm/yyyy" })
+        @Html.TextBoxFor(m => m.StartDate, "{0:dd/MM/yyyy}", new { @class = "form-control", placeholder = "dd/mm/yyyy" })
         @Html.ValidationMessageFor(m => m.StartDate)
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.EndDate)
-        @Html.TextBoxFor(m => m.EndDate, new { @class = "form-control", placeholder = "dd/mm/yyyy" })
+        @Html.TextBoxFor(m => m.EndDate, "{0:dd/MM/yyyy}", new { @class = "form-control", placeholder = "dd/mm/yyyy" })
         @Html.ValidationMessageFor(m => m.EndDate)
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Rate)
-        @Html.TextBoxFor(m => m.Rate, new {@class = "form-control"})
+        @Html.TextBoxFor(m => m.Rate, "{0:#.#}", new { @class = "form-control", placeholder = "100.00" })
         @Html.ValidationMessageFor(m => m.Rate)
     </div>
     <div class="form-group">
-        
+        @Html.LabelFor(m => m.RateType)
+        @Html.DropDownListFor(m => m.RateType, new SelectList(Model.RateTypes, "Id", "Rate"), "Select Rate Type", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.RateType)
     </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.OvertimeRate)
+        @Html.TextBoxFor(m => m.OvertimeRate, "{0:#.#}", new { @class = "form-control", placeholder = "100.00" })
+        @Html.ValidationMessageFor(m => m.OvertimeRate)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.OvertimeRateType)
+        @Html.DropDownListFor(m => m.OvertimeRateType, new SelectList(Model.RateTypes, "Id", "Rate"), "Select Rate Type", new {@class = "form-control"})
+        @Html.ValidationMessageFor(m => m.OvertimeRateType)
+    </div>
+    <button type="submit" class="btn btn-primary">Save Contract</button>
 }

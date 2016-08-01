@@ -1,5 +1,7 @@
 ﻿using BlueInvoicer.Controllers;
+using BlueInvoicer.Models;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq.Expressions;
 using System.Web.Mvc;
@@ -17,16 +19,24 @@ namespace BlueInvoicer.ViewModels
 
         public string Client { get; set; }
 
-        [Required]
+        [Required, Display(Name = "Contract Start Date")]
         public DateTime StartDate { get; set; }
 
-        [Required]
+        [Required, Display(Name = "Contract End Date")]
         public DateTime EndDate { get; set; }
 
         [Required]
         public decimal Rate { get; set; }
 
+        [Required, Display(Name = "Rate Type")]
+        public int RateType { get; set; }
+
         public decimal OvertimeRate { get; set; }
+
+        public IEnumerable<RateType> RateTypes { get; set; }
+
+        [Display(Name = "Overtime Rate Type")]
+        public int OvertimeRateType { get; set; }
 
         public string Heading { get; set; }
 
