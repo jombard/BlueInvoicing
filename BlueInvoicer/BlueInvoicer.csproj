@@ -205,6 +205,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ClientsController.cs" />
+    <Compile Include="Controllers\ContractsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InvoiceController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -227,15 +228,21 @@
     <Compile Include="Migrations\201607292009053_AddInvoiceDetails.Designer.cs">
       <DependentUpon>201607292009053_AddInvoiceDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608012204278_AddContractModel.cs" />
+    <Compile Include="Migrations\201608012204278_AddContractModel.Designer.cs">
+      <DependentUpon>201608012204278_AddContractModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\Contract.cs" />
     <Compile Include="Models\Invoice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="ViewModels\ClientFormViewModel.cs" />
+    <Compile Include="ViewModels\ContractsFormViewModel.cs" />
     <Compile Include="ViewModels\InvoiceFormViewModel.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
   </ItemGroup>
@@ -301,6 +308,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Clients\ClientForm.cshtml" />
     <None Include="Views\Clients\Index.cshtml" />
+    <Content Include="Views\Contracts\ContractForm.cshtml" />
     <None Include="Views\Invoice\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -327,6 +335,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201607292009053_AddInvoiceDetails.resx">
       <DependentUpon>201607292009053_AddInvoiceDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608012204278_AddContractModel.resx">
+      <DependentUpon>201608012204278_AddContractModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

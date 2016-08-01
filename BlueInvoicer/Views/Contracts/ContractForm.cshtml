@@ -1,0 +1,27 @@
+﻿@model BlueInvoicer.ViewModels.ContractsFormViewModel
+@{
+    ViewBag.Title = Model.Heading;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Heading</h2>
+
+@using (Html.BeginForm(Model.Action, "Contracts"))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(c => c.Id)
+
+    <div class="form-group">
+        @*@Html.LabelFor(m => m.Name) TODO add selected client *@ 
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", autofocus = "autofocus" })
+        @Html.ValidationMessageFor(m => m.Name)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Rate)
+        @Html.TextBoxFor(m => m.Rate, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Rate)
+    </div>
+}

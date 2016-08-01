@@ -17,9 +17,14 @@
     @foreach (var client in Model)
     {
         <li class="list-group-item">
-            <a href="@Url.Action("Edit", "Clients", new {id = client.ClientId})" class="pull-right btn btn-default">
-                <span class="glyphicon glyphicon-pencil"></span> Edit
-            </a>
+            <div class="btn-group pull-right">
+                <a href="@Url.Action("Edit", "Clients", new {id = client.ClientId})" class="btn btn-default">
+                    <span class="glyphicon glyphicon-pencil"></span> Edit
+                </a>
+                <a href="@Url.Action("Create", "Contracts", new {id = client.ClientId}))" class="btn btn-default">
+                    <span class="glyphicon glyphicon-file"></span> Add Contract
+                </a>
+            </div>
             <h4 class="list-group-item-heading">@client.ClientName</h4>
             <p class="list-group-item-text">@client.Address</p>
         </li>
