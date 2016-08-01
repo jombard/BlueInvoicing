@@ -7,7 +7,7 @@ namespace BlueInvoicer.Controllers
 {
     public class ContractsController : Controller
     {
-        private ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
         public ContractsController()
         {
@@ -16,9 +16,12 @@ namespace BlueInvoicer.Controllers
 
         public ActionResult Create(int id)
         {
+            var clientName = _context.Clients.Single(c => c.ClientId == id).ClientName;
             var viewModel = new ContractsFormViewModel
             {
-                Heading = "Add a new contract"
+                Heading = "Add a new contract",
+                ClientId = id,
+                Client = clientName
             };
 
             return View("ContractForm", viewModel);
@@ -38,7 +41,7 @@ namespace BlueInvoicer.Controllers
                 Rate = viewModel.Rate
             };
 
-            //_context.Contracts.Add(contract);
+            _context.Contracts.Add(contract);
             _context.SaveChanges();
 
             return RedirectToAction("Index", "Clients");
@@ -52,12 +55,10 @@ namespace BlueInvoicer.Controllers
             if (!ModelState.IsValid)
                 return View("ContractForm", viewModel);
 
-            var client = _context.Clients.Single(c => c.ClientId == viewModel.Id);
+            var contract = _context.Contracts.Single(c => c.Id == viewModel.Id);
 
-            //client.ClientName = viewModel.Name;
-            //client.Address = viewModel.Address;
-            //client.ContactEmail = viewModel.Email;
-            //client.InvoiceEmail = viewModel.InvoiceEmail;
+            contract.Name = viewModel.Name;
+            contract.Rate = viewModel.Rate;
 
             _context.SaveChanges();
 

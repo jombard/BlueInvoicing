@@ -1,7 +1,5 @@
 ﻿using BlueInvoicer.Controllers;
-using BlueInvoicer.Models;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq.Expressions;
 using System.Web.Mvc;
@@ -17,8 +15,7 @@ namespace BlueInvoicer.ViewModels
 
         public int ClientId { get; set; }
 
-        [Required]
-        public IEnumerable<Client> Clients { get; set; }
+        public string Client { get; set; }
 
         [Required]
         public DateTime StartDate { get; set; }

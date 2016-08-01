@@ -10,9 +10,10 @@
 {
     @Html.AntiForgeryToken()
     @Html.HiddenFor(c => c.Id)
+    @Html.HiddenFor(c => c.ClientId)
 
     <div class="form-group">
-        @*@Html.LabelFor(m => m.Name) TODO add selected client *@ 
+        @Html.DisplayFor(m => m.Client, new { @class = "h3" })
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Name)
@@ -20,8 +21,21 @@
         @Html.ValidationMessageFor(m => m.Name)
     </div>
     <div class="form-group">
+        @Html.LabelFor(m => m.StartDate)
+        @Html.TextBoxFor(m => m.StartDate, new { @class = "form-control", placeholder = "dd/mm/yyyy" })
+        @Html.ValidationMessageFor(m => m.StartDate)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.EndDate)
+        @Html.TextBoxFor(m => m.EndDate, new { @class = "form-control", placeholder = "dd/mm/yyyy" })
+        @Html.ValidationMessageFor(m => m.EndDate)
+    </div>
+    <div class="form-group">
         @Html.LabelFor(m => m.Rate)
-        @Html.TextBoxFor(m => m.Rate, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Rate, new {@class = "form-control"})
         @Html.ValidationMessageFor(m => m.Rate)
+    </div>
+    <div class="form-group">
+        
     </div>
 }
