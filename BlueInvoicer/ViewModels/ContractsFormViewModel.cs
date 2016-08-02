@@ -20,10 +20,10 @@ namespace BlueInvoicer.ViewModels
         public string Client { get; set; }
 
         [Required, Display(Name = "Contract Start Date")]
-        public DateTime StartDate { get; set; }
+        public string StartDate { get; set; }
 
         [Required, Display(Name = "Contract End Date")]
-        public DateTime EndDate { get; set; }
+        public string EndDate { get; set; }
 
         [Required]
         public decimal Rate { get; set; }

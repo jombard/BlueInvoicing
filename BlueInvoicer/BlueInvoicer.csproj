@@ -240,6 +240,10 @@
     <Compile Include="Migrations\201608012231267_PopulateRateTypes.Designer.cs">
       <DependentUpon>201608012231267_PopulateRateTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608020824257_AddForeignKeyPropertiesToContract.cs" />
+    <Compile Include="Migrations\201608020824257_AddForeignKeyPropertiesToContract.Designer.cs">
+      <DependentUpon>201608020824257_AddForeignKeyPropertiesToContract.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Client.cs" />
@@ -353,6 +357,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608012231267_PopulateRateTypes.resx">
       <DependentUpon>201608012231267_PopulateRateTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608020824257_AddForeignKeyPropertiesToContract.resx">
+      <DependentUpon>201608020824257_AddForeignKeyPropertiesToContract.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

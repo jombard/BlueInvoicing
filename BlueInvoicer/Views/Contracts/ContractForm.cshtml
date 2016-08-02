@@ -32,7 +32,10 @@
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Rate)
-        @Html.TextBoxFor(m => m.Rate, "{0:#.#}", new { @class = "form-control", placeholder = "100.00" })
+        <div class="input-group">
+            <div class="input-group-addon">&pound;</div>
+            @Html.TextBoxFor(m => m.Rate, "{0:#.#}", new { @class = "form-control", placeholder = "100.00" })
+        </div>
         @Html.ValidationMessageFor(m => m.Rate)
     </div>
     <div class="form-group">
@@ -42,7 +45,10 @@
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.OvertimeRate)
-        @Html.TextBoxFor(m => m.OvertimeRate, "{0:#.#}", new { @class = "form-control", placeholder = "100.00" })
+        <div class="input-group">
+            <div class="input-group-addon">&pound;</div>
+            @Html.TextBoxFor(m => m.OvertimeRate, "{0:#.#}", new {@class = "form-control", placeholder = "100.00"})
+        </div>
         @Html.ValidationMessageFor(m => m.OvertimeRate)
     </div>
     <div class="form-group">

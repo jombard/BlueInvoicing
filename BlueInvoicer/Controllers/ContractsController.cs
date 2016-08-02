@@ -1,4 +1,5 @@
-﻿using BlueInvoicer.Models;
+﻿using System;
+using BlueInvoicer.Models;
 using BlueInvoicer.ViewModels;
 using System.Linq;
 using System.Web.Mvc;
@@ -36,10 +37,20 @@ namespace BlueInvoicer.Controllers
             if (!ModelState.IsValid)
                 return View("ContractForm", viewModel);
 
+            var client = _context.Clients.Single(c => c.ClientId == viewModel.ClientId);
+            var rateType = _context.RateTypes.Single(r => r.Id == viewModel.RateType);
+            var overtimeRateType = _context.RateTypes.Single(r => r.Id == viewModel.OvertimeRateType);
+
             var contract = new Contract
             {
+                Client = client,
                 Name = viewModel.Name,
-                Rate = viewModel.Rate
+                StartDate = DateTime.Parse(viewModel.StartDate),
+                EndDate = DateTime.Parse(viewModel.EndDate),
+                Rate = viewModel.Rate,
+                RateType = rateType,
+                OvertimeRate = viewModel.OvertimeRate,
+                OvertimeRateType = overtimeRateType
             };
 
             _context.Contracts.Add(contract);
