@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using BlueInvoicer.Models;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using BlueInvoicer.Models;
 
 namespace BlueInvoicer.ViewModels
 {
     public class InvoiceFormViewModel
     {
+        [Display(Name = "Client")]
         public int ClientId { get; set; }
 
         [Required]

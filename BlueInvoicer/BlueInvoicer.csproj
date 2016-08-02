@@ -244,6 +244,10 @@
     <Compile Include="Migrations\201608020824257_AddForeignKeyPropertiesToContract.Designer.cs">
       <DependentUpon>201608020824257_AddForeignKeyPropertiesToContract.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608022059013_AddForeignKeyPropertiesToInvoice.cs" />
+    <Compile Include="Migrations\201608022059013_AddForeignKeyPropertiesToInvoice.Designer.cs">
+      <DependentUpon>201608022059013_AddForeignKeyPropertiesToInvoice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Client.cs" />
@@ -268,6 +272,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
+    <Content Include="Scripts\app\controllers\invoiceController.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -360,6 +365,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608020824257_AddForeignKeyPropertiesToContract.resx">
       <DependentUpon>201608020824257_AddForeignKeyPropertiesToContract.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608022059013_AddForeignKeyPropertiesToInvoice.resx">
+      <DependentUpon>201608022059013_AddForeignKeyPropertiesToInvoice.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

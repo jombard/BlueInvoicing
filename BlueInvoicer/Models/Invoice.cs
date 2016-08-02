@@ -14,6 +14,8 @@ namespace BlueInvoicer.Models
         public DateTime InvoiceDate { get; set; }
 
         [Required]
+        public int ClientId { get; set; }
+
         public Client Client { get; set; }
 
         [Required]
