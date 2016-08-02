@@ -13,20 +13,39 @@
 
 <hr/>
 
-<ul class="list-group">
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
     @foreach (var client in Model)
     {
-        <li class="list-group-item">
-            <div class="btn-group pull-right">
-                <a href="@Url.Action("Edit", "Clients", new {id = client.ClientId})" class="btn btn-default">
-                    <span class="glyphicon glyphicon-pencil"></span> Edit
-                </a>
-                <a href="@Url.Action("Create", "Contracts", new {id = client.ClientId})" class="btn btn-default">
-                    <span class="glyphicon glyphicon-file"></span> Add Contract
-                </a>
+        var header = "heading" + client.ClientId;
+        var collapse = "collapse" + client.ClientId;
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="@header">
+
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#@collapse"
+                       aria-expanded="false" aria-controls="@collapse">
+                        @client.ClientName <small>@client.Address</small>
+                    </a>
+                </h4>
             </div>
-            <h4 class="list-group-item-heading">@client.ClientName</h4>
-            <p class="list-group-item-text">@client.Address</p>
-        </li>
+            <div id="@collapse" class="panel-collapse collapse" role="tabpanel" 
+                 aria-labelledby="@header">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div class="btn-group">
+                            <a href="@Url.Action("Create", "Contracts", new {id = client.ClientId})" class="btn btn-default">
+                                <span class="glyphicon glyphicon-file"></span> Add Contract
+                            </a>
+                            <a href="@Url.Action("Edit", "Clients", new {id = client.ClientId})" class="btn btn-default">
+                                <span class="glyphicon glyphicon-pencil"></span> Edit
+                            </a>
+                        </div>
+                    </li>
+                    <li class="list-group-item">Contract 1</li>
+                    <li class="list-group-item">Contract 2</li>
+                    <li class="list-group-item">Contract 3</li>
+                </ul>
+            </div>
+        </div>
     }
-</ul>
+</div>

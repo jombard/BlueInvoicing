@@ -23,6 +23,10 @@ textarea {
     max-width: 280px;
 }
 
+.custom-placement {
+    margin: -8px -12px;
+}
+
 /*
     Bootstrap Overrides
 */
@@ -67,4 +71,23 @@ h6,
 .field-validation-error {
     color: red;
     font-weight: bold;
+}
+
+.panel>.list-group, 
+.panel>.panel-collapse>.list-group {
+    margin-bottom: 0;
+}
+
+.panel>.panel-heading+.panel-collapse>.list-group .list-group-item:first-child {
+    -ms-border-top-left-radius: 0;
+    border-top-left-radius: 0;
+    -ms-border-top-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.panel>.list-group .list-group-item, 
+.panel>.panel-collapse>.list-group .list-group-item {
+    border-width: 1px 0;
+    -ms-border-radius: 0;
+    border-radius: 0;
 }
