@@ -13,7 +13,7 @@
 
 <hr/>
 
-<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+#<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
     @foreach (var client in Model)
     {
         var header = "heading" + client.ClientId;
@@ -33,6 +33,9 @@
                 <ul class="list-group">
                     <li class="list-group-item">
                         <div class="btn-group">
+                            <a href="@Url.Action("Create", "Invoice", new {id = client.ClientId})" class="btn btn-default">
+                                <span class="glyphicon glyphicon-info-sign"></span> Raise Invoice
+                            </a>
                             <a href="@Url.Action("Create", "Contracts", new {id = client.ClientId})" class="btn btn-default">
                                 <span class="glyphicon glyphicon-file"></span> Add Contract
                             </a>

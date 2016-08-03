@@ -1,4 +1,4 @@
-﻿@model BlueInvoicer.ViewModels.InvoiceFormViewModel
+﻿@model BlueInvoicer.Models.Client
 
 @{
     ViewBag.Title = "Raise Invoice";
@@ -11,17 +11,44 @@
 {
     @Html.AntiForgeryToken()
     <div class="form-group">
-        @Html.LabelFor(m => m.ClientId)
-        @Html.DropDownListFor(m => m.ClientId, new SelectList(Model.Clients, "ClientId", "ClientName"), "", new {@class = "form-control"})
+        @Model.ClientName
     </div>
+
+    <div class="form-group">
+        <div class="date-pick"></div>
+    </div>
+
     <button type="submit" class="btn btn-primary">Raise Invoice</button>
 }
 
+
 @section scripts
 {
+    @Scripts.Render("~/bundles/datepicker")
+    
     <script>
-        $(document).ready(function () {
-            InvoiceController.init();
+        //$(document).ready(function () {
+        //    InvoiceController.init();
+        //});
+
+        $(function() {
+            $('.date-pick')
+                .datePicker({
+                    inline: true,
+                    selectMultiple: true,
+                    startDate: '01/01/2016'
+                })
+                .bind('click',
+                    function() {
+                        $(this).dpDisplay();
+                        this.blur();
+                        return false;
+                    })
+                .bind('dateSelected',
+                    function(e, selectedDate, $td, state) {
+                        console.log('You ' + (state ? '' : 'un') + 'selected ' + selectedDate);
+                        console.log(e, selectedDate, $td, state);
+                    });
         });
     </script>
 }

@@ -16,21 +16,18 @@ namespace BlueInvoicer.Controllers
         }
 
         [Authorize]
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
-            var viewModel = new InvoiceFormViewModel
-            {
-                Clients = _context.Clients.ToList()
-            };
+            var client = _context.Clients.Single(c => c.ClientId == id);
 
-            return View(viewModel);
+            return View(client);
         }
 
         [Authorize, HttpPost, ValidateAntiForgeryToken]
         public ActionResult Create(InvoiceFormViewModel viewModel)
         {
-            if(!ModelState.IsValid)
-                return View("Create", viewModel);
+            //if(!ModelState.IsValid)
+            //    return View("Create", viewModel);
 
             var prevInvoices = _context.Invoices.Count(i => i.ClientId == viewModel.ClientId);
             var clientName = _context.Clients.Single(c => c.ClientId == viewModel.ClientId);
