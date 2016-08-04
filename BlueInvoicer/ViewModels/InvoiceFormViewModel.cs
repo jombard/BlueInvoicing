@@ -19,5 +19,9 @@ namespace BlueInvoicer.ViewModels
         public IEnumerable<RateType> RateType { get; set; }
 
         public string Rate { get; set; }
+
+        public IEnumerable<RateType> OvertimeRateType { get; set; }
+
+        public string OvertimeRate { get; set; }
     }
 }

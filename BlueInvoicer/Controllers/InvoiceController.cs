@@ -26,7 +26,8 @@ namespace BlueInvoicer.Controllers
             {
                 Client = client,
                 Contracts = clientContract,
-                RateType = rateTypes
+                RateType = rateTypes,
+                OvertimeRateType = rateTypes
             };
 
             return View(viewModel);
