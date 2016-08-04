@@ -1,4 +1,4 @@
-﻿@model BlueInvoicer.Models.Client
+﻿@model BlueInvoicer.ViewModels.InvoiceFormViewModel
 
 @{
     ViewBag.Title = "Raise Invoice";
@@ -11,12 +11,36 @@
 {
     @Html.AntiForgeryToken()
     <div class="form-group">
-        @Model.ClientName
+        <p class="lead">@Model.Client.ClientName</p>
+    </div>
+
+    <div class="form-group">
+        @*dropdown to select contract*@
+        @Html.LabelFor(m => m.Contracts)
+        @Html.DropDownListFor(m => m.Contracts, new SelectList(Model.Contracts, "Id", "Name"), "Select contract", new {@class="form-control"})
+        @Html.ValidationMessageFor(m => m.Contracts)
+    </div>
+
+    <div class="form-group">
+        @*dropdown to select rate type*@
+        @Html.LabelFor(m => m.RateType)
+        @Html.DropDownListFor(m => m.RateType, new SelectList(Model.RateType, "Id", "Rate"), "Select Rate Type", new {@class="form-control"})
+    </div>
+
+    <div class="form-group">
+        @*input to confirm rate*@
+        @Html.LabelFor(m => m.Rate)
+        @Html.TextBoxFor(m => m.Rate, new {@class="form-control"})
     </div>
 
     <div class="form-group">
         <div class="date-pick"></div>
     </div>
+
+    <!-- button to insert selected content into invoice, then clears inputs to allow for next -->
+    <button type="button" class="btn btn-default">Add to Invoice</button>
+
+    <hr/>
 
     <button type="submit" class="btn btn-primary">Raise Invoice</button>
 }

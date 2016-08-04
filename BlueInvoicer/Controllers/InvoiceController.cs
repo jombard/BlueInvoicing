@@ -19,8 +19,17 @@ namespace BlueInvoicer.Controllers
         public ActionResult Create(int id)
         {
             var client = _context.Clients.Single(c => c.ClientId == id);
+            var clientContract = _context.Contracts.Where(c => c.ClientId == id).ToList();
+            var rateTypes = _context.RateTypes;
 
-            return View(client);
+            var viewModel = new InvoiceFormViewModel
+            {
+                Client = client,
+                Contracts = clientContract,
+                RateType = rateTypes
+            };
+
+            return View(viewModel);
         }
 
         [Authorize, HttpPost, ValidateAntiForgeryToken]

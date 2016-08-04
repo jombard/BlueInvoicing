@@ -9,7 +9,15 @@ namespace BlueInvoicer.ViewModels
         [Display(Name = "Client")]
         public int ClientId { get; set; }
 
-        [Required]
+        public Client Client { get; set; }
+
         public IEnumerable<Client> Clients { get; set; }
+
+        [Required]
+        public IEnumerable<Contract> Contracts { get; set; }
+
+        public IEnumerable<RateType> RateType { get; set; }
+
+        public string Rate { get; set; }
     }
 }
