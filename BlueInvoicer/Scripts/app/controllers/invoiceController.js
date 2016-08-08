@@ -10,22 +10,6 @@
         return Math.floor((utc2 - utc1) / msPerDay);
     }
 
-    var renderSampleInvoice = function() {
-        var sampleInvoiceDiv = $(".js-sample-invoice");
-
-        var currentDate = 0;
-        var consecutiveDays = 0;
-        $.each(selectedDates, function (i, val) {
-            if (dateDiffInDays(new Date(currentDate), new Date(val)) > 0) {
-                sampleInvoiceDiv.append($("<div />").append(new Date(val).asString() + " 1 day"));
-                consecutiveDays = 0;
-            } else {
-                sampleInvoiceDiv.find("div:last").append(" - " + new Date(val).asString() + " " + ++consecutiveDays + "days");
-            }
-            currentDate = val;
-        });
-    };
-
     var datepickerClick = function () {
         console.log("datepickerClick");
         $(this).dpDisplay();
@@ -45,9 +29,42 @@
         }
         selectedDates.sort();
 
-        renderSampleInvoice();
+        $.each(selectedDates,
+            function(i, val) {
+                $(".js-sample-invoice").after($("<div />").append(new Date(val).asString() + " 1 day"));
+            });
     };
 
+    var toggleWorkTypeOptions = function() {
+        if ($("#chkWorkNormal").is(":checked")) {
+            $(".js-work-normal").show();
+            $(".js-work-overtime").hide();
+        } else {
+            $(".js-work-normal").hide();
+            $(".js-work-overtime").show();
+        }
+    };
+    var clearInputs = function() {
+        $("#chkWorkNormal").prop("checked", true).trigger("change");
+        $("#RateType").val("");
+        $("#Rate").val("");
+        $("#OvertimeRateType").val("");
+        $("#OvertimeRate").val("");
+    };
+
+    var addToInvoice = function(e) {
+        e.preventDefault();
+
+        var sampleInvoiceDiv = $(".js-sample-invoice");
+
+        clearInputs();
+    };
+    var eventHandlers = function() {
+        $("#chkWorkNormal, #chkWorkOvertime").on("change", toggleWorkTypeOptions);
+
+        $(".js-sample-invoice-add").on("click", addToInvoice);
+
+    };
     var init = function() {
         $(".date-pick").datePicker({
             inline: true,
@@ -56,8 +73,9 @@
         })
             .bind("click", datepickerClick)
             .bind("dateSelected", datepickerSelected);
-    };
 
+        eventHandlers();
+    };
     return {
         init: init
     }

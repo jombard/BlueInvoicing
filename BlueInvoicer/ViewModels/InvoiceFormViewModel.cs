@@ -16,12 +16,15 @@ namespace BlueInvoicer.ViewModels
         [Required]
         public IEnumerable<Contract> Contracts { get; set; }
 
+        [Display(Name = "Rate Type")]
         public IEnumerable<RateType> RateType { get; set; }
 
         public string Rate { get; set; }
 
+        [Display(Name = "Out of Hours Rate Type")]
         public IEnumerable<RateType> OvertimeRateType { get; set; }
 
+        [Display(Name = "Out of Hours Rate")]
         public string OvertimeRate { get; set; }
     }
 }

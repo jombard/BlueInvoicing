@@ -23,44 +23,44 @@
             </div>
 
             <div class="form-group">
-                <label>
-                    <input type="radio" name="workType" checked="checked"/> Normal Rate
-                </label>
-                <label>
-                    <input type="radio" name="workType"/> Out of hours Rate
-                </label>
+                <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-default active">
+                        <input type="radio" name="workType" id="chkWorkNormal" checked="checked" /> Normal Rate
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="radio" name="workType" id="chkWorkOvertime" /> Out of Hours Rate
+                    </label>
+                </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group js-work-normal">
                 @Html.LabelFor(m => m.RateType)
                 @Html.DropDownListFor(m => m.RateType, new SelectList(Model.RateType, "Id", "Rate"), "Select Rate Type", new { @class = "form-control" })
             </div>
 
-            <div class="form-group">
+            <div class="form-group js-work-normal">
                 @Html.LabelFor(m => m.Rate)
                 @Html.TextBoxFor(m => m.Rate, new {@class = "form-control"})
             </div>
 
-            <div class="form-group">
+            <div class="form-group js-work-overtime" style="display: none;">
                 @Html.LabelFor(m => m.OvertimeRateType)
                 @Html.DropDownListFor(m => m.OvertimeRateType, new SelectList(Model.OvertimeRateType, "Id", "Rate"), "Select Out of Hours Rate Type", new { @class = "form-control" })
             </div>
 
-            <div class="form-group">
+            <div class="form-group js-work-overtime" style="display: none;">
                 @Html.LabelFor(m => m.OvertimeRate)
                 @Html.TextBoxFor(m => m.OvertimeRate, new { @class = "form-control" })
             </div>
 
             <div class="form-group">
+                <label>Period of Work</label>
                 <div class="date-pick"></div>
             </div>
 
             <!-- button to insert selected content into invoice, then clears inputs to allow for next -->
-            <button type="button" class="btn btn-default">Add to Invoice</button>
+            <button type="button" class="js-sample-invoice-add btn btn-primary">Add to Invoice</button>
 
-            <hr />
-
-            <button type="submit" class="btn btn-primary">Raise Invoice</button>
         }
     </div>
     <div class="col-md-6">
@@ -82,6 +82,10 @@
                 </tr>
             </table>
         </div>
+
+        <!-- button to process invoice once inputted data is completed -->
+        <button type="submit" class="btn btn-primary">Raise Invoice</button>
+
     </div>
 </div>
 
