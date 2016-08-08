@@ -200,82 +200,87 @@
 			// initialise the date picker controller with the relevant settings...
 			s = $.extend({}, $.fn.datePicker.defaults, s);
 
-			return this.each(
-				function () {
-					var $this = $(this);
-					var alreadyExists = true;
+		    return this.each(
+		        function() {
+		            var $this = $(this);
+		            var alreadyExists = true;
 
-					if (!this._dpId) {
-						this._dpId = $.guid++;
-						$.event._dpCache[this._dpId] = new DatePicker(this);
-						alreadyExists = false;
-					}
+		            if (!this._dpId) {
+		                this._dpId = $.guid++;
+		                $.event._dpCache[this._dpId] = new DatePicker(this);
+		                alreadyExists = false;
+		            }
 
-					if (s.inline) {
-						s.createButton = false;
-						s.displayClose = false;
-						s.closeOnSelect = false;
-						$this.empty();
-					}
+		            if (s.inline) {
+		                s.createButton = false;
+		                s.displayClose = false;
+		                s.closeOnSelect = false;
+		                $this.empty();
+		            }
 
-					var controller = $.event._dpCache[this._dpId];
+		            var controller = $.event._dpCache[this._dpId];
 
-					controller.init(s);
+		            controller.init(s);
 
-					if (!alreadyExists && s.createButton) {
-						// create it!
-						controller.button = $('<a href="#" class="dp-choose-date" title="' + $.dpText.TEXT_CHOOSE_DATE + '">' + $.dpText.TEXT_CHOOSE_DATE + '</a>')
-								.bind(
-									'click',
-									function () {
-										$this.dpDisplay(this);
-										this.blur();
-										return false;
-									}
-								);
-						$this.after(controller.button);
-					}
+		            if (!alreadyExists && s.createButton) {
+		                // create it!
+		                controller.button = $('<a href="#" class="dp-choose-date" title="' +
+		                        $.dpText.TEXT_CHOOSE_DATE +
+		                        '">' +
+		                        $.dpText.TEXT_CHOOSE_DATE +
+		                        '</a>')
+		                    .bind(
+		                        'click',
+		                        function() {
+		                            $this.dpDisplay(this);
+		                            this.blur();
+		                            return false;
+		                        }
+		                    );
+		                $this.after(controller.button);
+		            }
 
-					if (!alreadyExists && $this.is(':text')) {
-						$this
-							.bind(
-								'dateSelected',
-								function (e, selectedDate, $td) {
-									this.value = selectedDate.asString();
-								}
-							).bind(
-								'change',
-								function () {
-									if (this.value === '') {
-										controller.clearSelected();
-									} else {
-										var d = Date.fromString(this.value);
-										if (d) {
-											controller.setSelected(d, true, true);
-										}
-									}
-								}
-							);
-						if (s.clickInput) {
-							$this.bind(
-								'click',
-								function () {
-									// The change event doesn't happen until the input loses focus so we need to manually trigger it...
-									$this.trigger('change');
-									$this.dpDisplay();
-								}
-							);
-						}
-						var d = Date.fromString(this.value);
-						if (this.value !== '' && d) {
-							controller.setSelected(d, true, true);
-						}
-					}
+		            if (!alreadyExists && $this.is(':text')) {
+		                $this
+		                    .bind(
+		                        'dateSelected',
+		                        function(e, selectedDate, $td) {
+		                            this.value = selectedDate.asString();
+		                        }
+		                    )
+		                    .bind(
+		                        'change',
+		                        function() {
+		                            if (this.value === '') {
+		                                controller.clearSelected();
+		                            } else {
+		                                var d = Date.fromString(this.value);
+		                                if (d) {
+		                                    controller.setSelected(d, true, true);
+		                                }
+		                            }
+		                        }
+		                    );
+		                if (s.clickInput) {
+		                    $this.bind(
+		                        'click',
+		                        function() {
+		                            // The change event doesn't happen until the input loses focus so we need to manually trigger it...
+		                            $this.trigger('change');
+		                            $this.dpDisplay();
+		                        }
+		                    );
+		                }
+		                var d = Date.fromString(this.value);
+		                if (this.value !== '' && d) {
+		                    controller.setSelected(d, true, true);
+		                }
+		            }
 
-					$this.addClass('dp-applied');
+		            $this.addClass('dp-applied');
 
-				}
-			)
+		        }
+		    );
 		},
 		/**
 		 * Disables or enables this date picker

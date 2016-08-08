@@ -317,10 +317,9 @@ Date.fullYearStart = '20';
 	 * @cat Plugins/Methods/Date
 	 */
 	add("addDays", function (num) {
-		var timezoneOffsetBefore = this.getTimezoneOffset(),
-			timezoneOffsetAfter;
+		var timezoneOffsetBefore = this.getTimezoneOffset();
 		this.setTime(this.getTime() + (num * 86400000));
-		timezoneOffsetAfter = this.getTimezoneOffset();
+		var timezoneOffsetAfter = this.getTimezoneOffset();
 
 		// If the timezone has changed between days then adjust the time to reflect this
 		if (timezoneOffsetAfter !== timezoneOffsetBefore) {
@@ -414,37 +413,43 @@ Date.fullYearStart = '20';
 	 * @cat Plugins/Methods/Date
 	 * @author Kelvin Luck
 	 */
-	add("asString", function (format) {
+    // utility method
+    var zeroPad = function (num) {
+        var s = '0' + num;
+        return s.substring(s.length - 2);
+        //return ('0'+num).substring(-2); // doesn't work on IE :(
+    };
+    add("asString", function (format) {
 		var r = format || Date.format;
 		return r
 			.split('yyyy').join(this.getFullYear())
 			.split('yy').join((this.getFullYear() + '').substring(2))
-			.split('dd').join(_zeroPad(this.getDate()))
+			.split('dd').join(zeroPad(this.getDate()))
 			.split('d').join(this.getDate())
 			.split('DD').join(this.getDayName(false))
 			.split('D').join(this.getDayName(true))
 			.split('mmmm').join(this.getMonthName(false))
 			.split('mmm').join(this.getMonthName(true))
-			.split('mm').join(_zeroPad(this.getMonth() + 1))
-			.split('hh').join(_zeroPad(this.getHours()))
-			.split('min').join(_zeroPad(this.getMinutes()))
-			.split('ss').join(_zeroPad(this.getSeconds()));
+			.split('mm').join(zeroPad(this.getMonth() + 1))
+			.split('hh').join(zeroPad(this.getHours()))
+			.split('min').join(zeroPad(this.getMinutes()))
+			.split('ss').join(zeroPad(this.getSeconds()));
 	});
 
-	/**
-	 * Returns a new date object created from the passed String according to Date.format or false if the attempt to do this results in an invalid date object
-	 * (We can't simple use Date.parse as it's not aware of locale and I chose not to overwrite it incase it's functionality is being relied on elsewhere)
-	 *
-	 * @example var dtm = Date.fromString("12/01/2008");
-	 * dtm.toString();
-	 * @result 'Sat Jan 12 2008 00:00:00' // (where Date.format == 'dd/mm/yyyy'
-	 * 
-	 * @name fromString
-	 * @type Date
-	 * @cat Plugins/Methods/Date
-	 * @author Kelvin Luck
-	 */
-	Date.fromString = function (s, format) {
+    /**
+        * Returns a new date object created from the passed String according to Date.format or false if the attempt to do this results in an invalid date object
+        * (We can't simple use Date.parse as it's not aware of locale and I chose not to overwrite it incase it's functionality is being relied on elsewhere)
+        *
+        * @example var dtm = Date.fromString("12/01/2008");
+        * dtm.toString();
+        * @result 'Sat Jan 12 2008 00:00:00' // (where Date.format == 'dd/mm/yyyy'
+        * 
+        * @name fromString
+        * @type Date
+        * @cat Plugins/Methods/Date
+        * @author Kelvin Luck
+        */
+    Date.fromString = function (s, format) {
 		var f = format || Date.format,
 			d = new Date('01/01/1977'),
 			mLength = 0,
@@ -498,12 +503,4 @@ Date.fullYearStart = '20';
 		}
 		return d;
 	};
-
-	// utility method
-	var _zeroPad = function (num) {
-		var s = '0' + num;
-		return s.substring(s.length - 2)
-		//return ('0'+num).substring(-2); // doesn't work on IE :(
-	};
-
 })();
