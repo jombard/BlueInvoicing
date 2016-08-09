@@ -64,7 +64,7 @@
         }
     </div>
     <div class="col-md-6">
-        <div class="js-sample-invoice">
+        <div class="js-sample-invoice table-responsive">
             <table class="table">
                 <thead>
                 <tr>
@@ -72,6 +72,7 @@
                     <th>Rate</th>
                     <th>Quantity</th>
                     <th>Total</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tr class="js-invoice-row">
@@ -79,8 +80,15 @@
                     <td class="js-invoice-rate"></td>
                     <td class="js-invoice-quantity"></td>
                     <td class="js-invoice-total"></td>
+                    <td class="js-invoice-del"></td>
                 </tr>
             </table>
+
+            <div>
+                <hr/>
+                <h3>Gross Total <strong>£<span class="js-invoice-gross">0.00</span></strong></h3>
+                <hr />
+            </div>
         </div>
 
         <!-- button to process invoice once inputted data is completed -->

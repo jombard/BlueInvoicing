@@ -127,7 +127,7 @@ Date.fullYearStart = '20';
 	 */
 	add("isLeapYear", function () {
 		var y = this.getFullYear();
-		return (y % 4 == 0 && y % 100 != 0) || y % 400 == 0;
+		return (y % 4 === 0 && y % 100 !== 0) || y % 400 === 0;
 	});
 
 	/**
@@ -142,7 +142,7 @@ Date.fullYearStart = '20';
 	 * @cat Plugins/Methods/Date
 	 */
 	add("isWeekend", function () {
-		return this.getDay() == 0 || this.getDay() == 6;
+		return this.getDay() === 0 || this.getDay() === 6;
 	});
 
 	/**
@@ -413,13 +413,13 @@ Date.fullYearStart = '20';
 	 * @cat Plugins/Methods/Date
 	 * @author Kelvin Luck
 	 */
-    // utility method
-    var zeroPad = function (num) {
-        var s = '0' + num;
-        return s.substring(s.length - 2);
-        //return ('0'+num).substring(-2); // doesn't work on IE :(
-    };
-    add("asString", function (format) {
+	// utility method
+	var zeroPad = function (num) {
+		var s = '0' + num;
+		return s.substring(s.length - 2);
+		//return ('0'+num).substring(-2); // doesn't work on IE :(
+	};
+	add("asString", function (format) {
 		var r = format || Date.format;
 		return r
 			.split('yyyy').join(this.getFullYear())
@@ -436,20 +436,20 @@ Date.fullYearStart = '20';
 			.split('ss').join(zeroPad(this.getSeconds()));
 	});
 
-    /**
-        * Returns a new date object created from the passed String according to Date.format or false if the attempt to do this results in an invalid date object
-        * (We can't simple use Date.parse as it's not aware of locale and I chose not to overwrite it incase it's functionality is being relied on elsewhere)
-        *
-        * @example var dtm = Date.fromString("12/01/2008");
-        * dtm.toString();
-        * @result 'Sat Jan 12 2008 00:00:00' // (where Date.format == 'dd/mm/yyyy'
-        * 
-        * @name fromString
-        * @type Date
-        * @cat Plugins/Methods/Date
-        * @author Kelvin Luck
-        */
-    Date.fromString = function (s, format) {
+	/**
+		* Returns a new date object created from the passed String according to Date.format or false if the attempt to do this results in an invalid date object
+		* (We can't simple use Date.parse as it's not aware of locale and I chose not to overwrite it incase it's functionality is being relied on elsewhere)
+		*
+		* @example var dtm = Date.fromString("12/01/2008");
+		* dtm.toString();
+		* @result 'Sat Jan 12 2008 00:00:00' // (where Date.format == 'dd/mm/yyyy'
+		* 
+		* @name fromString
+		* @type Date
+		* @cat Plugins/Methods/Date
+		* @author Kelvin Luck
+		*/
+	Date.fromString = function (s, format) {
 		var f = format || Date.format,
 			d = new Date('01/01/1977'),
 			mLength = 0,
@@ -460,7 +460,7 @@ Date.fullYearStart = '20';
 		if (iM > -1) {
 			for (i = 0; i < Date.monthNames.length; i++) {
 				mStr = s.substr(iM, Date.monthNames[i].length);
-				if (Date.monthNames[i] == mStr) {
+				if (Date.monthNames[i] === mStr) {
 					mLength = Date.monthNames[i].length - 4;
 					break;
 				}
@@ -471,7 +471,7 @@ Date.fullYearStart = '20';
 			if (iM > -1) {
 				mStr = s.substr(iM, 3);
 				for (i = 0; i < Date.abbrMonthNames.length; i++) {
-					if (Date.abbrMonthNames[i] == mStr) break;
+					if (Date.abbrMonthNames[i] === mStr) break;
 				}
 				d.setMonth(i);
 			} else {
