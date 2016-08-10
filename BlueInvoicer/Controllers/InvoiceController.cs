@@ -1,12 +1,13 @@
 ﻿using BlueInvoicer.Models;
 using BlueInvoicer.ViewModels;
+using PerpetuumSoft.Knockout;
 using System;
 using System.Linq;
 using System.Web.Mvc;
 
 namespace BlueInvoicer.Controllers
 {
-    public class InvoiceController : Controller
+    public class InvoiceController : KnockoutController
     {
         private readonly ApplicationDbContext _context;
 

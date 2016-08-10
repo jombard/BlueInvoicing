@@ -1,6 +1,8 @@
-﻿@model BlueInvoicer.ViewModels.InvoiceFormViewModel
+﻿@using PerpetuumSoft.Knockout
+@model BlueInvoicer.ViewModels.InvoiceFormViewModel
 
 @{
+    var ko = Html.CreateKnockoutContext();
     ViewBag.Title = "Raise Invoice";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -101,10 +103,14 @@
 @section scripts
 {
     @Scripts.Render("~/bundles/datepicker")
-    
+
     <script>
-        $(document).ready(function () {
-            InvoiceController.init();
-        });
+        $(document)
+            .ready(function() {
+                InvoiceController.init();
+            });
     </script>
+
+
+    @ko.Apply(Model)
 }
