@@ -23,12 +23,16 @@ namespace BlueInvoicer.Controllers
             var clientContract = _context.Contracts.Where(c => c.ClientId == id).ToList();
             var rateTypes = _context.RateTypes;
 
-            var viewModel = new InvoiceFormViewModel
+            var viewModel = new InvoiceModelsModel
             {
-                Client = client,
-                Contracts = clientContract,
-                RateType = rateTypes,
-                OvertimeRateType = rateTypes
+                InvoiceListModel = new InvoiceListModel(),
+                InvoiceFormViewModel = new InvoiceFormViewModel
+                {
+                    Client = client,
+                    Contracts = clientContract,
+                    RateType = rateTypes,
+                    OvertimeRateType = rateTypes
+                }
             };
 
             return View(viewModel);
