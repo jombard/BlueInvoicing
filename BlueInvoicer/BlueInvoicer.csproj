@@ -273,7 +273,6 @@
     <Compile Include="ViewModels\ClientFormViewModel.cs" />
     <Compile Include="ViewModels\ContractsFormViewModel.cs" />
     <Compile Include="ViewModels\InvoiceFormViewModel.cs" />
-    <Compile Include="ViewModels\InvoiceListModel.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
   </ItemGroup>
   <ItemGroup>

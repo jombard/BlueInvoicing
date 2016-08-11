@@ -1,5 +1,5 @@
 ﻿@using PerpetuumSoft.Knockout
-@model BlueInvoicer.ViewModels.InvoiceModelsModel
+@model BlueInvoicer.ViewModels.InvoiceFormViewModel
 
 @{
     var ko = Html.CreateKnockoutContext();
@@ -15,13 +15,13 @@
         {
         @Html.AntiForgeryToken()
             <div class="form-group">
-                <p class="lead">@Model.InvoiceFormViewModel.Client.ClientName</p>
+                <p class="lead">@Model.Client.ClientName</p>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(m => m.InvoiceFormViewModel.Contracts)
-                @Html.DropDownListFor(m => m.InvoiceFormViewModel.Contracts, new SelectList(Model.InvoiceFormViewModel.Contracts, "Id", "Name"), "Select contract", new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.InvoiceFormViewModel.Contracts)
+                @Html.LabelFor(m => m.Contracts)
+                @Html.DropDownListFor(m => m.Contracts, new SelectList(Model.Contracts, "Id", "Name"), "Select contract", new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Contracts)
             </div>
 
             <div class="form-group">
@@ -36,23 +36,23 @@
             </div>
 
             <div class="form-group js-work-normal">
-                @Html.LabelFor(m => m.InvoiceFormViewModel.RateType)
-                @Html.DropDownListFor(m => m.InvoiceFormViewModel.RateType, new SelectList(Model.InvoiceFormViewModel.RateType, "Id", "Rate"), "Select Rate Type", new { @class = "form-control" })
+                @Html.LabelFor(m => m.RateType)
+                @Html.DropDownListFor(m => m.RateType, new SelectList(Model.RateType, "Id", "Rate"), "Select Rate Type", new { @class = "form-control" })
             </div>
 
             <div class="form-group js-work-normal">
-                @Html.LabelFor(m => m.InvoiceFormViewModel.Rate)
-                @Html.TextBoxFor(m => m.InvoiceFormViewModel.Rate, new {@class = "form-control"})
+                @Html.LabelFor(m => m.Rate)
+                @Html.TextBoxFor(m => m.Rate, new {@class = "form-control"})
             </div>
 
             <div class="form-group js-work-overtime" style="display: none;">
-                @Html.LabelFor(m => m.InvoiceFormViewModel.OvertimeRateType)
-                @Html.DropDownListFor(m => m.InvoiceFormViewModel.OvertimeRateType, new SelectList(Model.InvoiceFormViewModel.OvertimeRateType, "Id", "Rate"), "Select Out of Hours Rate Type", new { @class = "form-control" })
+                @Html.LabelFor(m => m.OvertimeRateType)
+                @Html.DropDownListFor(m => m.OvertimeRateType, new SelectList(Model.OvertimeRateType, "Id", "Rate"), "Select Out of Hours Rate Type", new { @class = "form-control" })
             </div>
 
             <div class="form-group js-work-overtime" style="display: none;">
-                @Html.LabelFor(m => m.InvoiceFormViewModel.OvertimeRate)
-                @Html.TextBoxFor(m => m.InvoiceFormViewModel.OvertimeRate, new { @class = "form-control" })
+                @Html.LabelFor(m => m.OvertimeRate)
+                @Html.TextBoxFor(m => m.OvertimeRate, new { @class = "form-control" })
             </div>
 
             <div class="form-group">
@@ -62,7 +62,7 @@
 
             <!-- button to insert selected content into invoice, then clears inputs to allow for next -->
             <button type="button" class="js-sample-invoice-add btn btn-primary">Add to Invoice</button>
-            @ko.Html.Button("Add to Invoice", "AddInvoiceEntry", "InvoiceListModel")
+            @ko.Html.Button("Add to Invoice", "AddInvoiceEntry", "InvoiceFormViewModel")
 
         }
     </div>
@@ -79,7 +79,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @using (var item = ko.Foreach(m => m.InvoiceListModel.InvoiceEntries))
+                @using (var item = ko.Foreach(m => m.InvoiceEntries))
                 {
                     <tr class="js-invoice-row">
                         <td class="js-invoice-desc"></td>
