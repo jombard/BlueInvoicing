@@ -1,4 +1,5 @@
-﻿using BlueInvoicer.Models;
+﻿using System;
+using BlueInvoicer.Models;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -37,6 +38,11 @@ namespace BlueInvoicer.ViewModels
         public void RemoveInvoiceEntry(int index)
         {
             InvoiceEntries.RemoveAt(index);
+        }
+
+        public void Save()
+        {
+            Console.WriteLine("Saved");
         }
     }
 }
