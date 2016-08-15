@@ -60,8 +60,7 @@
             </div>
 
             <!-- button to insert selected content into invoice, then clears inputs to allow for next -->
-            <button type="button" class="js-sample-invoice-add btn btn-primary">Add to Invoice</button>
-            @ko.Html.Button("Add to Invoice", "AddInvoiceEntry", "InvoiceFormViewModel")
+            @ko.Html.Button("Add to Invoice", "AddInvoiceEntry", "Invoice", null, new { @class = "btn btn-primary" })
 
         </form>
     </div>
@@ -107,6 +106,7 @@
 
 @section scripts
 {
+    @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/datepicker")
 
     <script>

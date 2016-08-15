@@ -19,6 +19,7 @@ namespace BlueInvoicer
                 "~/Scripts/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
+                "~/Scripts/jquery.form.min.js",
                 "~/Scripts/knockout-{version}.js",
                 "~/Scripts/knockout.mapping-latest.js",
                 "~/Scripts/perpetuum.knockout.js"));
