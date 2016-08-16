@@ -29,12 +29,11 @@ namespace BlueInvoicer.ViewModels
         [Display(Name = "Out of Hours Rate")]
         public string OvertimeRate { get; set; }
 
-        public List<InvoiceFormViewModel> InvoiceEntries { get; set; }
+        public List<InvoiceEntry> InvoiceEntries { get; set; }
 
-        [WebMethod]
         public void AddInvoiceEntry()
         {
-            InvoiceEntries.Add(new InvoiceFormViewModel());
+            InvoiceEntries.Add(new InvoiceEntry());
         }
 
         public void RemoveInvoiceEntry(int index)

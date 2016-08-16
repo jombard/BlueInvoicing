@@ -34,6 +34,12 @@ namespace BlueInvoicer.Controllers
             return View(viewModel);
         }
 
+        public ActionResult AddInvoiceEntry(InvoiceFormViewModel viewModel)
+        {
+            viewModel.AddInvoiceEntry();
+            return Json(viewModel);
+        }
+
         [Authorize, HttpPost, ValidateAntiForgeryToken]
         public ActionResult Create(InvoiceFormViewModel viewModel)
         {

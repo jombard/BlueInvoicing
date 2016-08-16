@@ -6,6 +6,7 @@ namespace BlueInvoicer.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Invoice> Invoices { get; set; }
+        public DbSet<InvoiceEntry> InvoiceEntries { get; set; }
         public DbSet<Client> Clients { get; set; }
         public DbSet<Contract> Contracts { get; set; }
         public DbSet<RateType> RateTypes { get; set; }
