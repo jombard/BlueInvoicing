@@ -14,5 +14,9 @@ namespace BlueInvoicer.Models
         public RateType RateType { get; set; }
 
         public int Amount { get; set; }
+
+        public string Rate { get; set; }
+
+        public int Quantity { get; set; }
     }
 }

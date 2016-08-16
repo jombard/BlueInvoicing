@@ -264,6 +264,10 @@
     <Compile Include="Migrations\201608161957138_AddInvoiceEntryModel.Designer.cs">
       <DependentUpon>201608161957138_AddInvoiceEntryModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608162147501_AddFurtherColumnsToInvoiceEntry.cs" />
+    <Compile Include="Migrations\201608162147501_AddFurtherColumnsToInvoiceEntry.Designer.cs">
+      <DependentUpon>201608162147501_AddFurtherColumnsToInvoiceEntry.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Client.cs" />
@@ -395,6 +399,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608161957138_AddInvoiceEntryModel.resx">
       <DependentUpon>201608161957138_AddInvoiceEntryModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608162147501_AddFurtherColumnsToInvoiceEntry.resx">
+      <DependentUpon>201608162147501_AddFurtherColumnsToInvoiceEntry.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
