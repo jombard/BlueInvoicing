@@ -33,7 +33,10 @@ namespace BlueInvoicer.ViewModels
 
         public void AddInvoiceEntry()
         {
-            InvoiceEntries.Add(new InvoiceEntry());
+            InvoiceEntries.Add(new InvoiceEntry
+            {
+                Description = ""
+            });
         }
 
         public void RemoveInvoiceEntry(int index)

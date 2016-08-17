@@ -94,7 +94,7 @@
                         <td>@items.Html.Span(i => i.Rate)</td>
                         <td>@items.Html.Span(i => i.Quantity)</td>
                         <td>@items.Html.Span(i => i.Amount)</td>
-                        <td>@ko.Html.Button("Delete", "RemoveInvoiceEntry", "InvoiceListModel", new { index = items.GetIndex() })</td>
+                        <td>@ko.Html.Button("Delete", "RemoveInvoiceEntry", "Invoice", new { index = items.GetIndex() })</td>
                     </tr>
                 }
                 </tbody>

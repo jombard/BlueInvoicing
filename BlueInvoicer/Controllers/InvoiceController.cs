@@ -2,6 +2,7 @@
 using BlueInvoicer.ViewModels;
 using PerpetuumSoft.Knockout;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -28,7 +29,20 @@ namespace BlueInvoicer.Controllers
                 Client = client,
                 Contracts = clientContract,
                 RateType = rateTypes,
-                OvertimeRateType = rateTypes
+                OvertimeRateType = rateTypes,
+                InvoiceEntries = new List<InvoiceEntry>
+                {
+                    new InvoiceEntry
+                    {
+                        Amount = 220,
+                        Description = "test desc",
+                        Id = 1,
+                        Invoice = new Invoice(),
+                        Quantity = 1,
+                        Rate = "220",
+                        RateType = new RateType()
+                    }
+                }
             };
 
             return View(viewModel);
@@ -37,6 +51,12 @@ namespace BlueInvoicer.Controllers
         public ActionResult AddInvoiceEntry(InvoiceFormViewModel viewModel)
         {
             viewModel.AddInvoiceEntry();
+            return Json(viewModel);
+        }
+
+        public ActionResult RemoveInvoiceEntry(InvoiceFormViewModel viewModel, int index)
+        {
+            viewModel.RemoveInvoiceEntry(index);
             return Json(viewModel);
         }
 
@@ -62,9 +82,5 @@ namespace BlueInvoicer.Controllers
             return RedirectToAction("Index", "Clients");
         }
 
-        public ActionResult Settings()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }
