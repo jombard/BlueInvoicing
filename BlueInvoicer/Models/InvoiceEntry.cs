@@ -1,4 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Web.Script.Serialization;
+using DelegateDecompiler;
+using Newtonsoft.Json;
 
 namespace BlueInvoicer.Models
 {
@@ -13,10 +16,13 @@ namespace BlueInvoicer.Models
 
         public RateType RateType { get; set; }
 
-        public int Amount { get; set; }
-
-        public string Rate { get; set; }
-
         public int Quantity { get; set; }
+
+        public int Rate { get; set; }
+
+        [Computed]
+        [ScriptIgnore]
+        [JsonIgnore]
+        public int Amount => Rate*Quantity;
     }
 }

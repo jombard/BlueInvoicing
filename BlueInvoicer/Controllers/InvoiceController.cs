@@ -34,12 +34,11 @@ namespace BlueInvoicer.Controllers
                 {
                     new InvoiceEntry
                     {
-                        Amount = 220,
                         Description = "test desc",
                         Id = 1,
                         Invoice = new Invoice(),
                         Quantity = 1,
-                        Rate = "220",
+                        Rate = 220,
                         RateType = new RateType()
                     }
                 }
@@ -50,7 +49,7 @@ namespace BlueInvoicer.Controllers
 
         public ActionResult AddInvoiceEntry(InvoiceFormViewModel viewModel)
         {
-            viewModel.AddInvoiceEntry();
+            viewModel.AddInvoiceEntry(viewModel);
             return Json(viewModel);
         }
 

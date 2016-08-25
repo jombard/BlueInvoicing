@@ -2,6 +2,7 @@
 using BlueInvoicer.Models;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Web.Services;
 
 namespace BlueInvoicer.ViewModels
@@ -31,11 +32,11 @@ namespace BlueInvoicer.ViewModels
 
         public List<InvoiceEntry> InvoiceEntries { get; set; }
 
-        public void AddInvoiceEntry()
+        public void AddInvoiceEntry(InvoiceFormViewModel viewModel)
         {
             InvoiceEntries.Add(new InvoiceEntry
             {
-                Description = ""
+                Description = "1"
             });
         }
 
