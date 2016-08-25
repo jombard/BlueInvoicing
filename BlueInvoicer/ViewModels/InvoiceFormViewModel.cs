@@ -2,8 +2,6 @@
 using BlueInvoicer.Models;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web.Services;
 
 namespace BlueInvoicer.ViewModels
 {
@@ -21,6 +19,8 @@ namespace BlueInvoicer.ViewModels
 
         [Display(Name = "Rate Type")]
         public IEnumerable<RateType> RateType { get; set; }
+
+        public string SelectedRateType { get; set; }
 
         public string Rate { get; set; }
 
