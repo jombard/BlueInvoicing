@@ -1,14 +1,15 @@
 ﻿using BlueInvoicer.Models;
 using BlueInvoicer.ViewModels;
-using PerpetuumSoft.Knockout;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 
 namespace BlueInvoicer.Controllers
 {
-    public class InvoiceController : KnockoutController
+    public class InvoiceController : Controller
     {
         private readonly ApplicationDbContext _context;
 
@@ -29,34 +30,10 @@ namespace BlueInvoicer.Controllers
                 Client = client,
                 Contracts = clientContract,
                 RateType = rateTypes,
-                OvertimeRateType = rateTypes,
-                InvoiceEntries = new List<InvoiceEntry>
-                {
-                    new InvoiceEntry
-                    {
-                        Description = "test desc",
-                        Id = 1,
-                        Invoice = new Invoice(),
-                        Quantity = 1,
-                        Rate = 220,
-                        RateType = new RateType()
-                    }
-                }
+                OvertimeRateType = rateTypes
             };
 
             return View(viewModel);
-        }
-
-        public ActionResult AddInvoiceEntry(InvoiceFormViewModel viewModel)
-        {
-            viewModel.AddInvoiceEntry(viewModel);
-            return Json(viewModel);
-        }
-
-        public ActionResult RemoveInvoiceEntry(InvoiceFormViewModel viewModel, int index)
-        {
-            viewModel.RemoveInvoiceEntry(index);
-            return Json(viewModel);
         }
 
         [Authorize, HttpPost, ValidateAntiForgeryToken]

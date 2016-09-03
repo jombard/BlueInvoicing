@@ -1,0 +1,18 @@
+﻿
+- add client
+    - client name
+    - client address
+
+- add contract to client
+    - contract name
+    - contract rate
+
+- add invoice to contract
+    - name (auto generated, first 3 digits of client name and accumulative 3 digit number)
+    - total (sum of invoice entry totals)
+
+- add invoice entry to invoice
+    - description
+    - rate (default set on contract)
+    - quantity
+    - total (rate * quantity)
