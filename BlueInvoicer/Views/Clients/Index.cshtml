@@ -13,42 +13,32 @@
 
 <hr/>
 
-<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-    @foreach (var client in Model)
-    {
-        var header = "heading" + client.ClientId;
-        var collapse = "collapse" + client.ClientId;
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="@header">
-
-                <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#@collapse"
-                       aria-expanded="false" aria-controls="@collapse">
-                        @client.ClientName <small>@client.Address</small>
-                    </a>
-                </h4>
-            </div>
-            <div id="@collapse" class="panel-collapse collapse" role="tabpanel" 
-                 aria-labelledby="@header">
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <div class="btn-group">
-                            <a href="@Url.Action("Create", "Invoice", new {id = client.ClientId})" class="btn btn-default">
-                                <span class="glyphicon glyphicon-info-sign"></span> Raise Invoice
-                            </a>
-                            <a href="@Url.Action("Create", "Contracts", new {id = client.ClientId})" class="btn btn-default">
-                                <span class="glyphicon glyphicon-file"></span> Add Contract
-                            </a>
-                            <a href="@Url.Action("Edit", "Clients", new {id = client.ClientId})" class="btn btn-default">
-                                <span class="glyphicon glyphicon-pencil"></span> Edit
-                            </a>
-                        </div>
-                    </li>
-                    <li class="list-group-item">Contract 1</li>
-                    <li class="list-group-item">Contract 2</li>
-                    <li class="list-group-item">Contract 3</li>
-                </ul>
-            </div>
-        </div>
-    }
-</div>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Client</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (var client in Model)
+        {
+            <tr>
+                <td>@client.ClientName <small>@client.Address</small></td>
+                <td>
+                    <div class="btn-group">
+                        <a href="@Url.Action("Create", "Invoice", new {id = client.ClientId})" class="btn btn-default">
+                            <span class="glyphicon glyphicon-info-sign"></span> Raise Invoice
+                        </a>
+                        <a href="@Url.Action("Create", "Contracts", new {id = client.ClientId})" class="btn btn-default">
+                            <span class="glyphicon glyphicon-file"></span> Add Contract
+                        </a>
+                        <a href="@Url.Action("Edit", "Clients", new {id = client.ClientId})" class="btn btn-default">
+                            <span class="glyphicon glyphicon-pencil"></span> Edit
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
